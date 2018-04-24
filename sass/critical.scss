@@ -1,0 +1,97 @@
+
+
+
+
+//  ! Important
+
+//  Place the minified version of this file into the
+//  style tag in the head of the page.
+//  This file is the 'critical' css that shows the
+//  above the fold content. The 'styles.min.css'
+//  contains the remainder of the styles for the page.
+//  This is for pagespeed purposes.
+
+
+
+@import "bourbon/_bourbon.scss";
+@import "neat/_neat.scss";
+
+@import "_breakpoints.scss";
+@import "_settings.scss";
+
+@import "_reset.scss";
+
+
+
+
+.outlineHelper * { outline: 1px dotted rgba(186, 119, 119, 0.2); }
+
+html {
+	background-color: $grey;
+	color: #fff;
+	font-family: $font-body;
+}
+
+.mainColumn
+{
+	@include media($md) {
+		width: 1000px;
+		margin: auto;
+	}
+}
+
+
+
+.mainNav
+{
+	@include clearfix;
+
+	li {
+		float: left;
+	}
+
+	a {
+		display: block;
+	}
+}
+
+
+
+.heroHeading
+{
+	text-align: center;
+
+	@include media($md) {
+
+		&__bckgImg {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-image: url('../img/welcomeHero.jpg');
+			background-repeat: no-repeat;
+			background-position: center center;
+			opacity: 0.4;
+		}
+	}
+}
+
+
+
+.bodyCopy {
+	padding: 40px 0;
+}
+
+
+
+.footer {
+	text-align: center;
+}
+
+
+
+
+
+

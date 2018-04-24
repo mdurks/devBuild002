@@ -1,0 +1,750 @@
+
+
+
+//  This stylesheet contains the remainder of the
+//  styles after the critical css has been seperated.
+
+
+
+@import "bourbon/_bourbon.scss";
+@import "neat/_neat.scss";
+
+@import "_breakpoints.scss";
+@import "_settings.scss";
+
+@import "_reset.scss";
+@import "_fonts.scss";
+
+
+
+.outlineHelper * { outline: 1px dotted rgba(186, 119, 119, 0.2); }
+
+
+
+html {
+	background-color: $white;
+	color: $grey;
+	font-family: $font-body;
+}
+
+body {
+	line-height: 1.7em;
+	width: 100%;
+	height: 100%;
+	word-break: break-word;
+}
+
+
+
+.noScroll {
+	overflow: hidden;
+}
+
+
+
+.headerColumn
+{
+	@include media($md) {
+		width: 1000px;
+		margin: auto;
+	}
+}
+.mainColumn
+{
+	padding: 0 14px;
+
+	@include media($md) {
+		width: 830px;
+		margin: auto;
+		padding: 0 15px;
+	}
+}
+
+
+p
+{
+	margin: 0 0 25px;
+	font-size: 14px;
+	line-height: 1.8em;
+
+	&:last-of-type {
+		margin: 0;
+	}
+
+	@include media($md){
+		font-size: 16px;
+		line-height: 1.6em;
+	}
+}
+
+a
+{
+	color: $blue-dark;
+	font-family: $font-body-bold;
+}
+a[href^="tel"] {
+	text-decoration: none;
+}
+
+
+
+.heading
+{
+	&--one
+	{
+		font-family: $font-header-light;
+		font-size: 30px;
+		line-height: 38px;
+		text-align: center;
+
+		@include media($md){
+			font-size: 38px;
+			line-height: 48px;
+		}
+
+		span {
+			font-family: $font-header;
+		}
+	}
+
+	&--two
+	{
+		margin: 0 0 25px;
+		font-family: $font-header;
+		font-weight: bold;
+		font-size: 23px;
+		text-align: left;
+		color: $blue-dark;
+
+		@include media($md){
+			text-align: center;
+		}
+	}
+
+	&--three,
+	&--three .anchorDestination
+	{
+		margin: 0 0 5px;
+		font-family: $font-header;
+		font-size: 16px;
+		line-height: 1.7em;
+		color: $blue-dark;
+
+		@include media($md) {
+			font-size: 17px;
+			line-height: 1.5em;
+		}
+	}
+}
+
+.para
+{
+	&--large
+	{
+		font-family: $font-header;
+		font-size: 16px;
+		line-height: 1.7em;
+		color: $blue-dark;
+
+		@include media($md) {
+			font-family: $font-header-light;
+			font-size: 20px;
+			line-height: 1.5em;
+		}
+	}
+
+	&--medium
+	{
+		font-family: $font-header;
+		font-size: 16px;
+		line-height: 1.7em;
+		color: $blue-dark;
+
+		@include media($md) {
+			font-size: 17px;
+			line-height: 1.5em;
+		}
+	}
+
+	&--border
+	{
+		margin-bottom: 40px;
+		padding: 30px 40px;
+		border: 1px solid $blue-dark;
+	}
+}
+
+.text
+{
+	&--phone {
+		font-size: 32px;
+		font-family: $font-body-bold;
+		color: $white;
+	}
+
+	&--email {
+		font-size: 16px;
+		font-family: $font-body-bold;
+		color: $white;
+		text-decoration: none;
+
+		@include media($md){
+			font-size: 19px;
+		}
+	}
+}
+
+
+
+.smallPara p
+{
+	font-size: 12px;
+}
+
+
+
+.bulletList
+{
+	margin: 0 0 20px 27px;
+	list-style-type: disc;
+
+	@include media($md){
+		margin: 0 0 20px 40px;
+	}
+
+	&.unindented
+	{
+		margin-left: 16px;
+		color: $blue-dark;
+
+		li {
+			font-size: 14px;
+		}
+	}
+}
+
+li
+{
+	padding: 0 0 10px 3px;
+	font-size: 14px;
+	line-height: 1.8em;
+
+	@include media($md){
+		font-size: 16px;
+		line-height: 1.6em;
+	}
+}
+
+
+
+.anchorList
+{
+	margin: 0 0 15px;
+
+	a {
+		display: block;
+	}
+
+	@include media($md)
+	{
+		a {
+			width: 49%;
+			display: inline-block;
+		}
+	}
+
+}
+
+
+
+
+.col2
+{
+	margin: 0 0 20px;
+
+	@include media($md){
+		float: left;
+		width: 50%;
+	}
+}
+.col3
+{
+	margin: 0 0 20px;
+
+	@include media($md){
+		float: left;
+		width: 33.3%;
+	}
+}
+
+
+
+.spacer {
+	display: block;
+	height: 60px;
+}
+
+
+
+hr
+{
+	margin: 30px 0;
+}
+
+
+.clearfix {
+	@include clearfix;
+}
+
+
+
+.ForbesLogo
+{
+	background-image: url('../img/forbes-logo.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+
+.mainNav
+{
+	@include clearfix;
+
+	.ForbesLogo {
+		display: block;
+		float: left;
+		margin: 0 0 0 5px;
+		width: 220px;
+		height: 70px;
+		text-indent: -999999px;
+
+		@include media($md) {
+			margin: 11px 0 0;
+			width: 266px;
+			height: 60px;
+		}
+	}
+
+	.showMobileMenu
+	{
+		float: right;
+		padding: 24px 17px 22px 20px;
+		cursor: pointer;
+
+		@include media($md) {
+			display: none;
+		}
+
+		span {
+			display: block;
+			margin: 0 0 4px;
+			width: 28px;
+			height: 4px;
+			border-radius: 50px;
+			background-color: $blue-dark;
+		}
+	}
+
+	.closeBtn
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 22px 29px 21px 29px;
+		font-size: 25px;
+		color: $white;
+		cursor: pointer;
+
+		@include media($md) {
+			display: none;
+		}
+	}
+
+	.mobileLogo
+	{
+		margin: 50px auto 20px;
+		width: 100px;
+		height: 100px;
+		background-image: url('../img/forbes-logo-white.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@include media($md) {
+			display: none;
+		}
+	}
+
+	.navList
+	{
+		display: none;
+		position: absolute;
+		z-index: 10;
+		height: 100vh;
+		width: 100%;
+		background-color: rgba(8,33,64,0.9);
+		text-align: center;
+
+		@include media($md) {
+			position: relative;
+			display: inline;
+			float: right;
+			width: auto;
+			height: auto;
+			background: none;
+			text-align: left;
+		}
+	}
+
+	li
+	{
+		@include media($md) {
+			padding: 0 0 25px;
+			float: left;
+		}
+	}
+
+	a
+	{
+		display: block;
+		padding: 8px 10px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $white;
+		font-size: 14px;
+		font-weight: bold;
+
+		@include media($md) {
+			padding: 32px 0 0;
+			margin: 0 10px;
+			color: $blue-dark;
+		}
+
+		&.selected
+		{
+			@include media($md) {
+				border-bottom: 2px solid $blue-dark;
+			}
+		}
+	}
+}
+
+
+
+.heroHeading
+{
+	text-align: center;
+	padding: 100px 0 40px 0;
+	color: $white;
+
+	@include media($md) {
+		padding: 300px 0 70px 0;
+	}
+
+	&__bckgImg
+	{
+		position: absolute;
+		z-index: -2;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+
+		&--home {
+			background-image: url('../img/header-home.jpg');
+		}
+		&--benefits {
+			background-image: url('../img/header-benefits.jpg');
+		}
+		&--scheme-summary {
+			background-image: url('../img/header-scheme-summary.jpg');
+		}
+		&--information {
+			background-image: url('../img/header-information.jpg');
+		}
+		&--about-us {
+			background-image: url('../img/header-about.jpg');
+		}
+		&--contact {
+			background-image: url('../img/header-contact.jpg');
+		}
+		&--faq {
+			background-image: url('../img/header-faq.jpg');
+		}
+	}
+
+	p
+	{
+		margin: 0 0 7px;
+		font-family: $font-header;
+		text-transform: uppercase;
+		font-style: italic;
+
+		@include media($md) {
+			margin: 0 0 17px;
+		}
+	}
+
+	h1:after
+	{
+		bottom: -30px;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(255, 255, 255, 0);
+		border-top-color: #fff;
+		border-width: 10px;
+		margin-left: -10px;
+
+		@include media($md) {
+			bottom: -50px;
+		}
+	}
+
+	.heroTitleUnderlined
+	{
+		display: inline;
+		position: relative;
+
+		&:after {
+			bottom: -20px;
+			transform: translateX(-42%);
+			width: 70%;
+			height: 3px;
+			background-color: $white;
+			border: none;
+		}
+	}
+}
+
+
+
+.heroHeading__bckgImg:before {
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.65) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 37%,rgba(0,0,0,0.65) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+}
+
+
+
+.bodyCopy {
+	padding: 30px 0;
+
+	@include media($md) {
+		padding: 50px 0;
+	}
+}
+
+
+
+.formContainer
+{
+	.formFieldStyling {
+		margin: 0 7px 17px 0;
+		padding: 15px;
+		width: 100%;
+		border: 1px solid $blue;
+		font-family: $font-body;
+		line-height: 1.7em;
+		color: $blue-dark;
+	}
+	select.formFieldStyling {
+		padding: 18px 15px;
+	}
+	textarea::-webkit-input-placeholder {
+		font-style: italic;
+	}
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	.submit {
+		display: block;
+		margin: auto;
+		padding: 10px 20px;
+		background-color: #fff;
+		border: 1px solid $grey;
+		border-radius: 20px;
+		font-family: $font-body-bold;
+	}
+	@include media($md)
+	{
+		margin: auto;
+		width: 80%;
+
+		.title 	{ width: 15%; }
+		.name 	{ width: 75%; }
+		.tel 	{ width: 30%; }
+		.email 	{ width: 60%; }
+		.msg 	{ width: 91.35%; margin-bottom: 60px; }
+		.submit {
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+			margin-right: 8%;
+		}
+	}
+}
+
+
+.lead-with-accordion
+{
+	@include media($upto-md)
+	{
+		padding-top: 10px;
+	}
+}
+
+.accordion-item
+{
+	.title
+	{
+		margin: 20px 0;
+		padding: 8px 45px 8px 0;
+		font-size: 18px;
+		line-height: 22px;
+		font-family: $font-body-bold;
+		color: $blue-dark;
+		text-transform: uppercase;
+		cursor: pointer;
+		border-bottom: 1px solid $blue-dark;
+
+		@include media($md)
+		{
+			font-size: 22px;
+		}
+
+		&:after {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 30px;
+			height: 30px;
+			background-color: $blue;
+			content: "+";
+			color: $white;
+			font-size: 32px;
+			line-height: 32px;
+			text-align: center;
+		}
+	}
+
+	.content {
+		display: none;
+	}
+
+	&:first-of-type .content {
+		display: block;
+	}
+
+	&.active
+	{
+		.title:after {
+			content: "-";
+			line-height: 28px;
+		}
+	}
+}
+
+
+
+.footer
+{
+	color: $white;
+	text-align: center;
+
+	@include media($md) {
+		text-align: left;
+	}
+
+	.heading--two {
+		color: $white;
+		text-align: center;
+	}
+
+	span.break
+	{
+		display: block;
+
+		@include media($md) {
+			display: inline;
+		}
+	}
+
+	p {
+		margin: 0 0 10px;
+	}
+
+	$footerHorizPadding: 70px;
+
+	.top
+	{
+		@include clearfix;
+		padding: 35px 15px 15px;
+		background-color: $blue;
+
+		@include media($md) {
+			padding: 50px;
+		}
+
+		.mainColumn {
+			padding: 0;
+
+			@include media($md) {
+				padding: 0 $footerHorizPadding;
+			}
+		}
+
+		.col
+		{
+			&:last-of-type {
+				margin: 30px 0;
+			}
+			@include media($md) {
+				float: left;
+				width: 50%;
+
+				&:last-of-type {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.bottom
+	{
+		padding: 30px;
+		background-color: $blue-dark;
+
+		.mainColumn
+		{
+			padding: 0;
+
+			@include media($md) {
+				padding: 0 $footerHorizPadding;
+			}
+		}
+	}
+
+	hr {
+		@include media($md) {
+			margin-left: -$footerHorizPadding;
+			margin-right: -$footerHorizPadding;
+		}
+	}
+}
+
+
+
+

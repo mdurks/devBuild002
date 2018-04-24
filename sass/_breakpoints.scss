@@ -1,0 +1,38 @@
+/* Breakpoints */
+
+$small-mobile   : 320px;
+$iphone         : 360px;
+$iphone-clear   : 361px;
+$medium-mobile  : 420px;
+$large-mobile   : 460px;
+$mobile         : 544px;
+$small-tablet   : 640px;
+$large-tablet   : 800px;
+$post-tablet    : 968px;
+$desktop        : 1024px;
+$desktop-clear  : 1023px;
+$desktop-medium : 1080px;
+$large-desktop  : 1200px;
+$extra-large-desktop  : 1400px;
+$max-screen     : 1600px;
+
+/* Grid breakpoints */
+
+$xxs           : new-breakpoint(min-width $small-mobile);
+$xs-i          : new-breakpoint(min-width $iphone);
+$xs-ix         : new-breakpoint(min-width $iphone-clear);
+$xs-mob        : new-breakpoint(min-width $medium-mobile);
+$xs-lg         : new-breakpoint(min-width $large-mobile);
+$xs            : new-breakpoint(min-width $mobile);
+$sm            : new-breakpoint(min-width $small-tablet);
+$md            : new-breakpoint(min-width $large-tablet);
+$md-med        : new-breakpoint(min-width $post-tablet);
+$lg            : new-breakpoint(min-width $desktop);
+$lg-med        : new-breakpoint(min-width $desktop-medium);
+$lg-ix         : new-breakpoint(max-width $desktop-clear);
+$xl            : new-breakpoint(min-width $large-desktop);
+$xxl           : new-breakpoint(min-width $extra-large-desktop);
+$max           : new-breakpoint(min-width $max-screen);
+$mobile-only   : new-breakpoint(max-width $mobile);
+$upto-md       : new-breakpoint(max-width $large-tablet);
+$upto-lg       : new-breakpoint(max-width $desktop);
