@@ -55,9 +55,9 @@ html {
 }
 
 html {
-  background-color: #666666;
+  background-color: #939393;
   color: #fff;
-  font-family: "montserratmedium";
+  font-family: "robotoregular";
 }
 
 @media screen and (min-width: 800px) {

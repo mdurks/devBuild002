@@ -3,10 +3,12 @@
 
 // Colours
 $grey-light:    #cccccc;
-$grey:          #666666;
+$grey:          #939393;
 
-$blue:          #88909F;
-$blue-dark:     #122140;
+$yellow:        #f9b808;
+
+$blue:          #6a7c92;
+$blue-dark:     #31475e;
 
 $white:         #fff;
 $black:         #000;
@@ -21,7 +23,11 @@ $font-montserrat: 'montserratregular';
 $font-playfair-bold: 'playfair_displaybold';
 $font-playfair: 'playfair_displayregular';
 
-$font-body: $font-montserrat-medium;
-$font-body-bold: $font-montserrat-bold;
-$font-header: $font-playfair-bold;
-$font-header-light: $font-playfair;
+$font-roboto-reg: 'robotoregular';
+$font-roboto-med: 'robotomedium';
+$font-roboto-bold: 'robotobold';
+
+$font-body: $font-roboto-reg;
+$font-body-bold: $font-roboto-med;
+$font-header: $font-roboto-bold;
+$font-header-light: $font-roboto-bold;
