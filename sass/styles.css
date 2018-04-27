@@ -102,7 +102,7 @@ body {
 
 @media screen and (min-width: 800px) {
   .mainColumn {
-    width: 930px;
+    width: 970px;
     margin: auto;
     padding: 0 15px;
   }
@@ -110,12 +110,8 @@ body {
 
 p {
   margin: 0 0 25px;
-  font-size: 14px;
-  line-height: 1.8em;
-}
-
-p:last-of-type {
-  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7em;
 }
 
 a {
@@ -158,18 +154,30 @@ a[href^="tel"] {
 }
 
 .heading--two {
+  display: inline-block;
+  position: relative;
   margin: 0 0 25px;
-  font-family: "robotobold";
   font-weight: bold;
   font-size: 23px;
   text-align: left;
-  color: #31475e;
+  color: #f9b808;
 }
 
 @media screen and (min-width: 800px) {
   .heading--two {
     text-align: center;
+    font-size: 30px;
   }
+}
+
+.heading--two:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  width: 100%;
+  height: 4px;
+  background-color: #f9b808;
 }
 
 .heading--three,
@@ -185,7 +193,7 @@ a[href^="tel"] {
 @media screen and (min-width: 800px) {
   .heading--three,
   .heading--three .anchorDestination {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.5em;
   }
 }
@@ -202,6 +210,65 @@ a[href^="tel"] {
     font-family: "robotobold";
     font-size: 20px;
     line-height: 1.5em;
+  }
+}
+
+.para--largeQuote {
+  margin: 60px 0;
+  font-size: 20px;
+  line-height: 25px;
+  color: #31475e;
+}
+
+@media screen and (min-width: 800px) {
+  .para--largeQuote {
+    margin: 56px 0 62px;
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+.para--largeQuote:before, .para--largeQuote:after {
+  content: '"';
+  display: inline-block;
+  font-size: 55px;
+  color: #f9b808;
+  line-height: 0;
+  top: 17px;
+  position: relative;
+}
+
+@media screen and (min-width: 800px) {
+  .para--largeQuote:before, .para--largeQuote:after {
+    font-size: 55px;
+  }
+}
+
+.para--largeQuote:before {
+  left: -3px;
+}
+
+@media screen and (max-width: 800px) {
+  .para--largeQuote:before {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+         -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+    font-size: 85px;
+  }
+}
+
+.para--largeQuote:after {
+  left: 2px;
+}
+
+@media screen and (max-width: 800px) {
+  .para--largeQuote:after {
+    display: none;
   }
 }
 
@@ -342,6 +409,7 @@ li {
 
 @media screen and (min-width: 800px) {
   .columnBoxs .col3 {
+    margin: 0;
     padding: 20px;
     border: 1px solid #6a7c92;
     -webkit-border-radius: 3px;
@@ -349,7 +417,13 @@ li {
             border-radius: 3px;
   }
   .columnBoxs .col3:nth-child(2) {
-    margin: 0 20px 20px;
+    margin: 0 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .columnBoxs .heading--three {
+    margin: 0 0 15px;
   }
 }
 
@@ -397,8 +471,8 @@ hr {
 
 @media screen and (min-width: 800px) {
   .mainNav .ForbesLogo {
-    margin: 12px 0 0;
-    width: 266px;
+    margin: 12px 0 0 28px;
+    width: 170px;
     height: 44px;
   }
 }
@@ -523,7 +597,7 @@ hr {
 
 @media screen and (min-width: 800px) {
   .heroHeading {
-    padding: 260px 0 80px 0;
+    padding: 260px 0 40px 0;
   }
 }
 
@@ -578,6 +652,16 @@ hr {
 @media screen and (min-width: 800px) {
   .heroHeading p {
     margin: 0 0 17px;
+  }
+}
+
+.heroHeading .heading--one {
+  padding: 0 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .heroHeading .heading--one {
+    padding: 0 100px;
   }
 }
 
@@ -749,22 +833,14 @@ hr {
 
 .btn {
   display: inline-block;
-  margin: 30px 0 0;
-  padding: 7px 20px;
+  margin: 30px 0;
+  padding: 3px 12px;
   color: #fff;
-  text-transform: uppercase;
   text-decoration: none;
   -webkit-border-radius: 20px;
      -moz-border-radius: 20px;
           border-radius: 20px;
   background-color: #f9b808;
-}
-
-@media screen and (min-width: 800px) {
-  .btn {
-    margin: 50px 0 20px;
-    padding: 10px 30px;
-  }
 }
 
 .flexparent {
@@ -796,17 +872,64 @@ hr {
 }
 
 .whyChooseBox {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+     -moz-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
   margin: 0;
-  padding: 30px;
+  padding: 20px;
   color: #fff;
   background-color: #f9b808;
 }
 
+@media screen and (min-width: 800px) {
+  .whyChooseBox {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+       -moz-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    padding: 33px 35px 23px;
+    width: 53.5%;
+  }
+}
+
+.whyChooseBox .heading--two {
+  color: #fff;
+  text-align: left;
+}
+
+.whyChooseBox .heading--two:after {
+  background-color: #fff;
+}
+
 .whyChooseBox p {
-  margin: 10px 0;
+  position: relative;
+  margin: 12px 0;
+  padding: 0 0 0 43px;
   color: #000;
   font-size: 18px;
   font-family: "robotomedium";
+}
+
+.whyChooseBox p:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 28px;
+  height: 28px;
+  -webkit-border-radius: 100%;
+     -moz-border-radius: 100%;
+          border-radius: 100%;
+  border: 2px solid #fff;
+}
+
+@media screen and (min-width: 800px) {
+  .whyChooseBox p {
+    font-size: 21px;
+  }
 }
 
 .contactImgBox {
@@ -818,6 +941,12 @@ hr {
   -moz-background-size: cover;
        background-size: cover;
   background-image: url("../img/contactImgBox.jpg");
+}
+
+@media screen and (min-width: 800px) {
+  .contactImgBox {
+    width: 46.5%;
+  }
 }
 
 .footer {

@@ -54,7 +54,7 @@ body {
 	padding: 0 14px;
 
 	@include media($md) {
-		width: 930px;
+		width: 970px;
 		margin: auto;
 		padding: 0 15px;
 	}
@@ -64,24 +64,19 @@ body {
 p
 {
 	margin: 0 0 25px;
-	font-size: 14px;
-	line-height: 1.8em;
+	font-size: 14.5px;
+	line-height: 1.7em;
 
-	&:last-of-type {
-		margin: 0;
-	}
-
-	@include media($md){
-	}
 }
 
 a
 {
 	color: $blue-dark;
 	font-family: $font-body-bold;
-}
-a[href^="tel"] {
-	text-decoration: none;
+
+	&[href^="tel"] {
+		text-decoration: none;
+	}
 }
 
 
@@ -120,15 +115,27 @@ a[href^="tel"] {
 
 	&--two
 	{
+		display: inline-block;
+		position: relative;
 		margin: 0 0 25px;
-		font-family: $font-header;
 		font-weight: bold;
 		font-size: 23px;
 		text-align: left;
-		color: $blue-dark;
+		color: $yellow;
 
 		@include media($md){
 			text-align: center;
+			font-size: 30px;
+		}
+
+		&:after {
+			content: " ";
+			position: absolute;
+			left: 0;
+			bottom: -14px;
+			width: 100%;
+			height: 4px;
+			background-color: $yellow;
 		}
 	}
 
@@ -143,7 +150,7 @@ a[href^="tel"] {
 		color: $blue-dark;
 
 		@include media($md) {
-			font-size: 17px;
+			font-size: 20px;
 			line-height: 1.5em;
 		}
 	}
@@ -162,6 +169,56 @@ a[href^="tel"] {
 			font-family: $font-header-light;
 			font-size: 20px;
 			line-height: 1.5em;
+		}
+	}
+
+	&--largeQuote
+	{
+		margin: 60px 0;
+		font-size: 20px;
+		line-height: 25px;
+		color: $blue-dark;
+
+		@include media($md) {
+			margin: 56px 0 62px;
+			font-size: 32px;
+			line-height: 38px;
+		}
+
+		&:before,
+		&:after
+		{
+			content: '"';
+			display: inline-block;
+			font-size: 55px;
+			color: $yellow;
+			line-height: 0;
+			top: 17px;
+			position: relative;
+
+			@include media($md) {
+				font-size: 55px;
+			}
+		}
+
+		&:before
+		{
+			@include media($upto-md) {
+				position: absolute;
+				top: -5px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 85px;
+			}
+			left: -3px;
+		}
+
+		&:after
+		{
+			@include media($upto-md) {
+				display: none;
+			}
+			left: 2px;
 		}
 	}
 
@@ -312,13 +369,22 @@ li
 	{
 		@include media($md)
 		{
+			margin: 0;
 			padding: 20px;
 			border: 1px solid $blue;
 			border-radius: 3px;
 
 			&:nth-child(2) {
-				margin: 0 20px 20px;
+				margin: 0 20px;
 			}
+		}
+	}
+
+	.heading--three
+	{
+		@include media($md)
+		{
+			margin: 0 0 15px;
 		}
 	}
 }
@@ -368,8 +434,8 @@ hr
 		text-indent: -999999px;
 
 		@include media($md) {
-			margin: 12px 0 0;
-			width: 266px;
+			margin: 12px 0 0 28px;
+			width: 170px;
 			height: 44px;
 		}
 	}
@@ -488,7 +554,7 @@ hr
 	color: $white;
 
 	@include media($md) {
-		padding: 260px 0 80px 0;
+		padding: 260px 0 40px 0;
 	}
 
 	&__bckgImg
@@ -503,27 +569,13 @@ hr
 		background-position: center center;
 		background-size: cover;
 
-		&--home {
-			background-image: url('../img/header-home.jpg');
-		}
-		&--benefits {
-			background-image: url('../img/header-benefits.jpg');
-		}
-		&--scheme-summary {
-			background-image: url('../img/header-scheme-summary.jpg');
-		}
-		&--information {
-			background-image: url('../img/header-information.jpg');
-		}
-		&--about-us {
-			background-image: url('../img/header-about.jpg');
-		}
-		&--contact {
-			background-image: url('../img/header-contact.jpg');
-		}
-		&--faq {
-			background-image: url('../img/header-faq.jpg');
-		}
+		&--home 		  { background-image: url('../img/header-home.jpg'); }
+		&--benefits 	  { background-image: url('../img/header-benefits.jpg'); }
+		&--scheme-summary { background-image: url('../img/header-scheme-summary.jpg'); }
+		&--information 	  { background-image: url('../img/header-information.jpg'); }
+		&--about-us 	  { background-image: url('../img/header-about.jpg'); }
+		&--contact 		  { background-image: url('../img/header-contact.jpg'); }
+		&--faq 			  { background-image: url('../img/header-faq.jpg'); }
 	}
 
 	p
@@ -535,6 +587,15 @@ hr
 
 		@include media($md) {
 			margin: 0 0 17px;
+		}
+	}
+
+	.heading--one
+	{
+		padding: 0 10px;
+
+		@include media($md) {
+			padding: 0 100px;
 		}
 	}
 }
@@ -550,7 +611,8 @@ hr
 
 
 
-.bodyCopy {
+.bodyCopy
+{
 	padding: 30px 0;
 
 	@include media($md) {
@@ -697,19 +759,12 @@ hr
 .btn
 {
 	display: inline-block;
-	margin: 30px 0 0;
-	padding: 7px 20px;
+	margin: 30px 0;
+	padding: 3px 12px;
 	color: $white;
-	text-transform: uppercase;
 	text-decoration: none;
 	border-radius: 20px;
 	background-color: $yellow;
-
-	@include media($md)
-	{
-		margin: 50px 0 20px;
-		padding: 10px 30px;
-	}
 }
 
 
@@ -727,16 +782,53 @@ hr
 
 .whyChooseBox
 {
+	order: 1;
 	margin: 0;
-	padding: 30px;
+	padding: 20px;
 	color: $white;
 	background-color: $yellow;
 
-	p {
-		margin: 10px 0;
+	@include media($md)
+	{
+		order: 0;
+		padding: 33px 35px 23px;
+		width: 53.5%;
+	}
+
+	.heading--two
+	{
+		color: $white;
+		text-align: left;
+
+		&:after {
+			background-color: $white;
+		}
+	}
+
+	p
+	{
+		position: relative;
+		margin: 12px 0;
+		padding: 0 0 0 43px;
 		color: $black;
 		font-size: 18px;
-		font-family: $font-body-bold
+		font-family: $font-body-bold;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 4px;
+			width: 28px;
+			height: 28px;
+			border-radius: 100%;
+			border: 2px solid $white;
+		}
+
+		@include media($md)
+		{
+			font-size: 21px;
+		}
 	}
 }
 
@@ -749,6 +841,11 @@ hr
 	background-position: center center;
 	background-size: cover;
 	background-image: url('../img/contactImgBox.jpg');
+
+	@include media($md)
+	{
+		width: 46.5%;
+	}
 }
 
 
