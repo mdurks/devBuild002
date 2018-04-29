@@ -85,8 +85,8 @@ a
 {
 	&--one
 	{
-		font-size: 30px;
-		line-height: 38px;
+		font-size: 24px;
+    	line-height: 28px;
 		text-align: center;
 		text-transform: uppercase;
 
@@ -101,14 +101,20 @@ a
 			font-family: $font-body-bold;
 			color: $yellow;
 
-			&:after {
+			&:after
+			{
 				content: " ";
 				position: absolute;
 				left: 0;
-    			bottom: 0;
+    			bottom: 1px;
 				width: 100%;
-				height: 4px;
+				height: 2px;
 				background-color: $yellow;
+
+				@include media($md){
+					height: 4px;
+					bottom: 0;
+				}
 			}
 		}
 	}
@@ -129,7 +135,7 @@ a
 		@include media($md){
 			margin: 0 0 30px;
 			text-align: center;
-			font-size: 30px;
+			font-size: 23px;
 		}
 
 		&:after {
@@ -142,8 +148,8 @@ a
 			background-color: $yellow;
 
 			@include media($md){
-				bottom: -14px;
-				height: 4px;
+				bottom: -5px;
+				height: 3px;
 			}
 		}
 
@@ -177,8 +183,8 @@ a
 
 		@include media($md) {
 			font-family: $font-header-light;
-			font-size: 20px;
-			line-height: 1.5em;
+			font-size: 21px;
+			line-height: 1.6em;
 		}
 	}
 
@@ -344,6 +350,10 @@ li
 
 
 
+.colWrapper {
+	overflow: auto;
+}
+
 
 .col2
 {
@@ -361,6 +371,15 @@ li
 	@include media($md){
 		float: left;
 		width: 33.3%;
+	}
+}
+
+.outline
+{
+	@include media($md){
+		padding: 20px;
+		border: 1px solid $blue;
+		border-radius: 3px;
 	}
 }
 
@@ -400,10 +419,21 @@ li
 
 	&.infoBoxs
 	{
+		.col3 {
+			padding: 20px;
+			border: 1px solid $blue;
+			border-radius: 3px;
+		}
 		.heading--three
 		{
 			text-transform: none;
 		}
+	}
+
+	p.heading-three {
+		margin: 0;
+		font-family: $font-header;
+		font-size: 20px;
 	}
 }
 
@@ -412,6 +442,17 @@ li
 .spacer {
 	display: block;
 	height: 60px;
+}
+
+
+.yellowBckgrnd {
+	background-color: $yellow;
+}
+.yellowTxt {
+	color: $yellow;
+}
+.darkBlueTxt {
+	color: $blue-dark;
 }
 
 
@@ -616,6 +657,96 @@ hr
 			padding: 0 100px;
 		}
 	}
+
+
+	&.heroHeading-style2
+	{
+		padding: 0;
+
+		@include media($md) {
+			text-align: left;
+		}
+
+		.heroHeading__bckgImg
+		{
+			z-index: 0;
+
+			@include media($upto-md) {
+				position: relative;
+				height: 150px;
+			}
+
+			@include media($md) {
+				left: 50%;
+				padding-right: 90px;
+			}
+
+			&--about-us 	  { background-position: left center; }
+		}
+
+		@include media($upto-md) {
+			.spacer { display: none; }
+		}
+
+		.flexparent {
+			margin: 0;
+		}
+
+		.col2 {
+			padding: 20px 20px 30px;
+			margin: 0;
+
+			@include media($md) {
+				padding: 100px 40px 75px;
+			}
+		}
+
+		.heading--one
+		{
+			padding: 0;
+
+			@include media($md) {
+				text-align: left;
+			}
+
+			span {
+				color: $white;
+
+				&:after {
+					background-color: $white;
+				}
+			}
+		}
+
+		p {
+			margin: 10px 0;
+			color: $black;
+			font-style: normal;
+			font-family: $font-body;
+			font-size: 18px;
+			line-height: 24px;
+			text-transform: none;
+
+			span
+			{
+				font-family: $font-header;
+			}
+
+			@include media($md) {
+				margin: 15px 0;
+				padding-right: 90px;
+				font-size: 24px;
+				line-height: 32px;
+			}
+		}
+
+		.btn
+		{
+			margin: 0;
+			border: 1px solid $white;
+		}
+	}
+
 }
 
 
@@ -644,7 +775,7 @@ hr
 {
 	.formFieldStyling {
 		margin: 0 7px 17px 0;
-		padding: 15px;
+		padding: 12px 15px;
 		width: 100%;
 		border: 1px solid $blue;
 		font-family: $font-body;
@@ -652,7 +783,7 @@ hr
 		color: $blue-dark;
 	}
 	select.formFieldStyling {
-		padding: 18px 15px;
+		padding: 15px 15px;
 	}
 	textarea::-webkit-input-placeholder {
 		font-style: italic;
@@ -664,28 +795,25 @@ hr
 	}
 	.submit {
 		display: block;
-		margin: auto;
-		padding: 10px 20px;
-		background-color: #fff;
-		border: 1px solid $grey;
+		margin: 20px auto;
+		padding: 8px 15px;
+		color: #fff;
+		text-decoration: none;
 		border-radius: 20px;
+		border: none;
+		background-color: $yellow;
 		font-family: $font-body-bold;
 	}
 	@include media($md)
 	{
 		margin: auto;
-		width: 80%;
 
-		.title 	{ width: 15%; }
-		.name 	{ width: 75%; }
+		.title 	{ width: 25%; }
+		.name 	{ width: 65%; }
 		.tel 	{ width: 30%; }
 		.email 	{ width: 60%; }
-		.msg 	{ width: 91.35%; margin-bottom: 60px; }
+		.msg 	{ width: 92.35%; }
 		.submit {
-			position: absolute;
-			right: 0;
-			bottom: 10px;
-			margin-right: 8%;
 		}
 	}
 }
