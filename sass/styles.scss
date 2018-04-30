@@ -22,7 +22,7 @@
 
 
 html {
-	background-color: $white;
+	background-color: $grey;
 	color: $blue;
 	font-family: $font-body;
 }
@@ -44,7 +44,7 @@ body {
 
 .headerColumn
 {
-	@include media($md) {
+	@media(min-width: 1000px) {
 		width: 1000px;
 		margin: auto;
 	}
@@ -54,9 +54,12 @@ body {
 	padding: 0 14px;
 
 	@include media($md) {
-		width: 970px;
+		width: 100%;
 		margin: auto;
 		padding: 0 15px;
+	}
+	@media(min-width: 1000px) {
+		width: 970px;
 	}
 }
 
@@ -79,6 +82,10 @@ a
 	}
 }
 
+strong, .bold {
+	font-family: $font-body-bold;
+}
+
 
 
 .heading
@@ -98,8 +105,14 @@ a
 
 		span
 		{
+			display: inline-block;
+			padding: 0 0.35em 0 0;
 			font-family: $font-body-bold;
 			color: $yellow;
+
+			&:last-of-type {
+				padding: 0;
+			}
 
 			&:after
 			{
@@ -128,7 +141,7 @@ a
 		margin: 0 0 20px;
 		font-weight: bold;
 		font-size: 23px;
-		text-align: left;
+		text-align: center;
 		text-transform: uppercase;
 		color: $yellow;
 
@@ -219,6 +232,7 @@ a
 
 		&:before
 		{
+			content: '“';
 			@include media($upto-md) {
 				position: absolute;
 				top: -5px;
@@ -231,6 +245,7 @@ a
 
 		&:after
 		{
+			content: '”';
 			@include media($upto-md) {
 				display: none;
 			}
@@ -445,15 +460,9 @@ li
 }
 
 
-.yellowBckgrnd {
-	background-color: $yellow;
-}
-.yellowTxt {
-	color: $yellow;
-}
-.darkBlueTxt {
-	color: $blue-dark;
-}
+.yellowBckgrnd 	  { background-color: $yellow; }
+.yellowTxt 		  { color: $yellow; }
+.darkBlueTxt 	  { color: $blue-dark; }
 
 
 
@@ -502,20 +511,33 @@ hr
 	.showMobileMenu
 	{
 		float: right;
-		padding: 24px 17px 22px 20px;
+		margin: 16px 13px 0 0;
+		padding: 10px 6px;
+		border: 2px solid $white;
+		border-radius: 100%;
 		cursor: pointer;
 
 		@include media($md) {
 			display: none;
 		}
 
-		span {
+		span
+		{
 			display: block;
-			margin: 0 0 4px;
-			width: 28px;
-			height: 4px;
+			margin: 0 0 3px;
+			width: 19px;
+			height: 2px;
 			border-radius: 50px;
 			background-color: $white;
+
+			&:first-of-type,
+			&:last-of-type {
+				width: 75%;
+				margin: 0 auto 3px;
+			}
+			&:last-of-type {
+				margin: 0 auto;
+			}
 		}
 	}
 
@@ -539,8 +561,8 @@ hr
 
 	.mobileLogo
 	{
-		margin: 50px auto 20px;
-		width: 100px;
+		margin: 70px auto 10px;
+    	width: 200px;
 		height: 100px;
 		background-image: url('../img/Refundable_Logo.svg');
 		background-position: center center;
@@ -575,6 +597,17 @@ hr
 
 	li
 	{
+		@include media($upto-md)
+		{
+			margin: auto;
+			padding: 1px 0 4px;
+			width: 200px;
+			border-bottom: 1px solid white;
+
+			&:last-of-type {
+				border: none;
+			}
+		}
 		@include media($md) {
 			padding: 0 0 23px;
 			float: left;
@@ -602,6 +635,17 @@ hr
 			}
 		}
 	}
+
+	.contactBtn
+	{
+		@include media($md) {
+			position: relative;
+			top: 18px;
+			padding: 2px 20px 4px;
+			border: 1px solid $yellow;
+			border-radius: 100px;
+		}
+	}
 }
 
 
@@ -609,7 +653,7 @@ hr
 .heroHeading
 {
 	text-align: center;
-	padding: 100px 0 40px 0;
+	padding: 100px 0 20px;
 	color: $white;
 
 	@include media($md) {
@@ -625,16 +669,23 @@ hr
 		bottom: 0;
 		right: 0;
 		background-repeat: no-repeat;
-		background-position: center center;
+		background-position: right 72%;
 		background-size: cover;
+
+		@include media($sm) {
+			background-position: right 45%;
+			background-size: cover;
+		}
+		@include media($md) {
+			background-position: center center;
+			background-size: cover;
+		}
 
 		&--home 		  { background-image: url('../img/header-home.jpg'); }
 		&--benefits 	  { background-image: url('../img/header-benefits.jpg'); }
-		&--scheme-summary { background-image: url('../img/header-scheme-summary.jpg'); }
 		&--information 	  { background-image: url('../img/header-information.jpg'); }
 		&--about-us 	  { background-image: url('../img/header-about.jpg'); }
 		&--contact 		  { background-image: url('../img/header-contact.jpg'); }
-		&--faq 			  { background-image: url('../img/header-faq.jpg'); }
 	}
 
 	p
@@ -657,7 +708,6 @@ hr
 			padding: 0 100px;
 		}
 	}
-
 
 	&.heroHeading-style2
 	{
@@ -747,6 +797,15 @@ hr
 		}
 	}
 
+	.btn
+	{
+		margin: 20px 0 0;
+
+		@include media($md) {
+			margin: 30px 0;
+		}
+	}
+
 }
 
 
@@ -763,6 +822,7 @@ hr
 .bodyCopy
 {
 	padding: 30px 0 20px;
+	background-color: $white;
 
 	@include media($md) {
 		padding: 50px 0;
@@ -777,16 +837,18 @@ hr
 		margin: 0 7px 17px 0;
 		padding: 12px 15px;
 		width: 100%;
-		border: 1px solid $blue;
+		border: 1px solid $blue-light;
+		border-radius: 3px;
 		font-family: $font-body;
 		line-height: 1.7em;
 		color: $blue-dark;
 	}
 	select.formFieldStyling {
 		padding: 15px 15px;
+		font-family: $font-header;
+		color: $black;
 	}
 	textarea::-webkit-input-placeholder {
-		font-style: italic;
 	}
 	input[type=number]::-webkit-inner-spin-button,
 	input[type=number]::-webkit-outer-spin-button {
@@ -795,7 +857,7 @@ hr
 	}
 	.submit {
 		display: block;
-		margin: 20px auto;
+		margin: 0 auto 20px;
 		padding: 8px 15px;
 		color: #fff;
 		text-decoration: none;
@@ -808,73 +870,12 @@ hr
 	{
 		margin: auto;
 
-		.title 	{ width: 25%; }
-		.name 	{ width: 65%; }
-		.tel 	{ width: 30%; }
-		.email 	{ width: 60%; }
-		.msg 	{ width: 92.35%; }
+		.title 	{ width: 26%; }
+		.name 	{ width: 69%; }
+		.tel 	{ width: 34%; }
+		.email 	{ width: 61%; }
+		.msg 	{ width: 97.35%; }
 		.submit {
-		}
-	}
-}
-
-
-.lead-with-accordion
-{
-	@include media($upto-md)
-	{
-		padding-top: 10px;
-	}
-}
-
-.accordion-item
-{
-	.title
-	{
-		margin: 20px 0;
-		padding: 8px 45px 8px 0;
-		font-size: 18px;
-		line-height: 22px;
-		font-family: $font-body-bold;
-		color: $blue-dark;
-		text-transform: uppercase;
-		cursor: pointer;
-		border-bottom: 1px solid $blue-dark;
-
-		@include media($md)
-		{
-			font-size: 22px;
-		}
-
-		&:after {
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 30px;
-			height: 30px;
-			background-color: $blue;
-			content: "+";
-			color: $white;
-			font-size: 32px;
-			line-height: 32px;
-			text-align: center;
-		}
-	}
-
-	.content {
-		display: none;
-	}
-
-	&:first-of-type .content {
-		display: block;
-	}
-
-	&.active
-	{
-		.title:after {
-			content: "-";
-			line-height: 28px;
 		}
 	}
 }
@@ -899,6 +900,15 @@ hr
 	&.icon-handShake 	{ background-image: url('../img/icon-handShake.svg'	  ); }
 	&.icon-certificate 	{ background-image: url('../img/icon-certificate.svg' ); }
 	&.icon-money 		{ background-image: url('../img/icon-money.svg'		  ); }
+}
+
+
+.whiteTick,
+.whyChooseBox p:before {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 65%;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAMAAACfvvDEAAAAnFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TINBkAAAAM3RSTlMA/e7zJQkG+uk4LAzVYdnMybggHBj20a1vaDTl36Cdl4yId1g9MCkTqYaEglxZU0i9sa+pF0VBAAABP0lEQVQ4y4WV2XKCQBBF2RkIOwgCSgRRjNGYhP//txThTmWpmenzfKqbvtOtGs2T1XiWQ3vWkEaMRZ1FeE4Y6fOCOxCNr+a8Ejdq8eBCTH2laF8h6lWm7r3lratcLb4x3poQTwHE5KwWixTibiSC7PVVNO4a8ZEGxn51iDcs0ftzIt5mDzHwid7hZhXNGyH6PKBnWy3aHcSYWrWjid5HQsxjlOxswnyBGFFzj+0qulvqviq+QZNE0MANURoPcS5hZWGchEcpfO/zfsNDHnTs2klYMFjCq783I+IrJCm4wELnJ6FScGJeOQOj98cdSooSKi4zR2etjtMpNAHZ+/wft5YcIfoDlBTyaOmSoDb/mHEhP9kDJuGDy5k+fplBRl4O6MmLAAy/qfSnXqibyGJEdNcoQmYsJDn9t9N4C9Iz+wLiu04aRGCy6wAAAABJRU5ErkJggg==');
 }
 
 
@@ -1003,7 +1013,7 @@ hr
 	padding: 30px 30px 25px;
 	color: $white;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center 27%;;
 	background-size: cover;
 	background-image: url('../img/contactImgBox.jpg');
 
@@ -1030,6 +1040,47 @@ hr
 		}
 
 		span:after { display: none; }
+	}
+}
+
+.contactList
+{
+	p
+	{
+		margin: 7px 0 0 0;
+		font-size: 18px;
+		text-transform: uppercase;
+		border-bottom: 1px solid $blue;
+
+		&:last-of-type {
+			border: none;
+		}
+
+		@include media($md)
+		{
+			margin: 7px 15% 0 0;
+		}
+
+		span {
+			float: right;
+			font-family: $font-body-bold;
+			color: $blue-dark;
+		}
+	}
+	.contactList-telNumbers
+	{
+		margin: 0 0 40px;
+
+		p span
+		{
+			margin: 0;
+			float: none;
+
+			@include media($md)
+			{
+				margin: 0 0 0 10px;
+			}
+		}
 	}
 }
 
@@ -1103,8 +1154,12 @@ hr
 
 	.bottom
 	{
-		padding: 30px;
+		padding: 30px 20px;
 		background-color: $grey;
+
+		@include media($md) {
+			padding: 50px 30px;
+		}
 
 		// .mainColumn
 		// {
@@ -1121,6 +1176,18 @@ hr
 		// 	margin-left: -$footerHorizPadding;
 		// 	margin-right: -$footerHorizPadding;
 		// }
+	}
+
+	.mainNav
+	{
+		display: none;
+
+		@include media($md) {
+			display: block;
+			margin: -25px 0 0 0;
+			float: right;
+			background: none;
+		}
 	}
 }
 
